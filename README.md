@@ -9,8 +9,8 @@
 ## 方法一、通过命令行的方式
 
 ```
-docker run -d -p [host_port]:[container_port] --name shadowsocks \
--d myidwy/docker-shadowsocks \
+docker run -p [host_port]:[container_port] --name shadowsocks \
+-d myidwy/shadowsocks \
 -p [server_port] -k [password] -m [aes-encrypt_method-cfb]
 ```
 
@@ -26,17 +26,17 @@ docker run -d -p [host_port]:[container_port] --name shadowsocks \
 **实例：（指定端口8388，密码123456）**
 
 ```
-docker run -d -p 8388:8388 --name shadowsocks \
--d myidwy/docker-shadowsocks \
+docker run -p 8388:8388 --name shadowsocks \
+-d myidwy/shadowsocks \
 -p 8388 -k 123456 -m aes-256-cfb
 ```
 
 ## 方法二：通过配置文件的方式
 
 ```
-docker run -d -p [host_port]:[container_port] --name shadowsocks \
+docker run -p [host_port]:[container_port] --name shadowsocks \
 -e "SERVER_PORT=[server_port]" -e "PASSWORD=[password]" \
--d myidwy/docker-shadowsocks
+-d myidwy/shadowsocks
 ```
 
 参数说明：
@@ -52,14 +52,14 @@ docker run -d -p [host_port]:[container_port] --name shadowsocks \
 ```
 docker run -d -p 8388:8388 --name shadowsocks \
 -e "PASSWORD=123456" -e  "SERVER_PORT=8388" \
--d myidwy/docker-shadowsocks
+-d myidwy/shadowsocks
 ```
 
 **实例2：（端口和密码都不指定，使用默认值）**
 
 ```
 docker run -d -p 8388:8388 --name shadowsocks \
--d myidwy/docker-shadowsocks
+-d myidwy/shadowsocks
 ```
 
 **实例3：（指定密码、，其他默认值）**
@@ -67,7 +67,7 @@ docker run -d -p 8388:8388 --name shadowsocks \
 ```
 docker run -d -p 8388:8388 --name shadowsocks \
 -e "PASSWORD=123456" \
--d myidwy/docker-shadowsocks
+-d myidwy/shadowsocks
 ```
 
 ## 三、调试

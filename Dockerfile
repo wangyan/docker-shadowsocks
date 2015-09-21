@@ -9,6 +9,8 @@ RUN apt-get update && \
   rm -rf /var/lib/apt/lists/*
 
 COPY docker-shadowsocks.sh /shadowsocks.sh
+RUN chmod +x /shadowsocks.sh
+
 ENTRYPOINT ["/shadowsocks.sh"]
 
 CMD ["ssserver","-c","/etc/shadowsocks.json"]
